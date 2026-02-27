@@ -68,6 +68,20 @@ Based on the user interview, fill in these components:
 - **compatibility**: Required tools, dependencies (optional, rarely needed)
 - **the rest of the skill :)**
 
+### Skill Placement
+
+All skills must be placed in the `skills/` directory at the root of the current project. The directory structure should follow the existing pattern:
+
+```
+skills/
+├── skill-name/
+│   ├── SKILL.md (required)
+│   ├── LICENSE.txt (recommended)
+│   └── any additional directories or files as needed
+```
+
+When creating a new skill, ensure it is placed directly under the `skills/` directory with a unique, descriptive name.
+
 ### Skill Writing Guide
 
 #### Anatomy of a Skill
@@ -111,6 +125,16 @@ Claude reads only the relevant reference file.
 #### Principle of Lack of Surprise
 
 This goes without saying, but skills must not contain malware, exploit code, or any content that could compromise system security. A skill's contents should not surprise the user in their intent if described. Don't go along with requests to create misleading skills or skills designed to facilitate unauthorized access, data exfiltration, or other malicious activities. Things like a "roleplay as an XYZ" are OK though.
+
+#### User Consent for Resource Requests and Command Execution
+
+Unless the user explicitly states they don't care, all generated skills must require user consent before making any resource requests or executing any commands. This includes but is not limited to:
+- Reading or writing files
+- Making network requests
+- Running scripts or commands
+- Accessing external services
+
+The skill should clearly explain what action it intends to take and why, then ask for the user's explicit approval before proceeding. This ensures transparency and gives the user full control over the skill's actions.
 
 #### Writing Patterns
 
